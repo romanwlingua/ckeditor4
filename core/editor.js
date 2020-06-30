@@ -29,8 +29,9 @@
 		// Call the CKEDITOR.event constructor to initialize this instance.
 		CKEDITOR.event.call( this );
 
-		// Make a clone of the config object, to avoid having it touched by our code. (https://dev.ckeditor.com/ticket/9636)
-		instanceConfig = instanceConfig && CKEDITOR.tools.clone( instanceConfig );
+		// DO NOT Make a clone of the config object, to avoid having it touched by our code. (https://dev.ckeditor.com/ticket/9636)
+		// Otherwise instances of classes passed throught the config will loose their original reference
+		// instanceConfig = instanceConfig && CKEDITOR.tools.clone( instanceConfig );
 
 		// if editor is created off one page element.
 		if ( element !== undefined ) {
